@@ -2148,3 +2148,1677 @@ to {
     }
 
 }
+
+/* ==========================================================
+   NEXUSCITY DIGITAL TWIN V2
+========================================================== */
+
+.digital-twin{
+position:relative;
+width:100%;
+height:520px;
+overflow:hidden;
+border-radius:22px;
+background:
+radial-gradient(circle at center,#14344e 0%,#08131e 70%,#04070d 100%);
+border:1px solid rgba(90,220,255,.15);
+box-shadow:
+0 0 40px rgba(0,220,255,.18),
+inset 0 0 50px rgba(0,150,255,.12);
+}
+
+/* GRID */
+
+.dt-grid{
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(80,220,255,.08) 1px,transparent 1px),
+linear-gradient(90deg,rgba(80,220,255,.08) 1px,transparent 1px);
+background-size:40px 40px;
+animation:gridMove 18s linear infinite;
+}
+
+@keyframes gridMove{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(40px);
+}
+}
+
+/* ROADS */
+
+.road{
+position:absolute;
+background:#273847;
+box-shadow:0 0 12px rgba(255,255,255,.08);
+}
+
+.horizontal{
+height:12px;
+width:100%;
+}
+
+.vertical{
+width:12px;
+height:100%;
+}
+
+.h1{top:120px;}
+.h2{top:330px;}
+
+.v1{left:170px;}
+.v2{right:170px;}
+
+/* AI CORE */
+
+.ai-core-center{
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+width:110px;
+
+height:110px;
+
+border-radius:50%;
+
+background:#00d9ff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:bold;
+
+color:#00161f;
+
+z-index:20;
+
+box-shadow:
+
+0 0 35px cyan,
+
+0 0 80px rgba(0,255,255,.4);
+
+}
+
+.ai-core-center span{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+}
+
+.core-glow{
+
+position:absolute;
+
+inset:-20px;
+
+border-radius:50%;
+
+border:2px solid rgba(0,255,255,.3);
+
+animation:spin 8s linear infinite;
+
+}
+
+@keyframes spin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+/* PULSE */
+
+.pulse{
+
+position:absolute;
+
+border:2px solid cyan;
+
+border-radius:50%;
+
+opacity:.5;
+
+animation:pulse 3s infinite;
+
+}
+
+.pulse1{
+
+width:120px;
+
+height:120px;
+
+}
+
+.pulse2{
+
+width:180px;
+
+height:180px;
+
+animation-delay:1s;
+
+}
+
+.pulse3{
+
+width:250px;
+
+height:250px;
+
+animation-delay:2s;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:translate(-50%,-50%) scale(.4);
+
+opacity:.7;
+
+}
+
+100%{
+
+transform:translate(-50%,-50%) scale(1);
+
+opacity:0;
+
+}
+
+}/* ==========================================================
+   DIGITAL TWIN BUILDINGS
+========================================================== */
+
+.building{
+position:absolute;
+bottom:40px;
+width:48px;
+border-radius:8px 8px 0 0;
+background:linear-gradient(to top,#12344c,#2e6f92);
+border:1px solid rgba(120,230,255,.35);
+box-shadow:
+0 0 18px rgba(0,220,255,.25),
+inset 0 0 20px rgba(255,255,255,.08);
+overflow:hidden;
+animation:buildingGlow 3s ease-in-out infinite alternate;
+}
+
+.building::before{
+content:"";
+position:absolute;
+inset:6px;
+background:
+repeating-linear-gradient(
+to bottom,
+rgba(255,245,170,.95) 0 4px,
+transparent 4px 10px
+),
+repeating-linear-gradient(
+90deg,
+rgba(255,245,170,.95) 0 4px,
+transparent 4px 10px
+);
+opacity:.85;
+}
+
+.b1{left:60px;height:170px;}
+.b2{left:130px;height:220px;}
+.b3{left:230px;height:145px;}
+.b4{left:320px;height:250px;}
+
+.b5{right:320px;height:180px;}
+.b6{right:230px;height:230px;}
+.b7{right:140px;height:160px;}
+.b8{right:60px;height:210px;}
+
+@keyframes buildingGlow{
+from{
+filter:brightness(.9);
+}
+to{
+filter:brightness(1.2);
+}
+}
+
+/* ==========================================================
+   DIGITAL TWIN VEHICLES
+========================================================== */
+
+/* Cars */
+
+.car{
+position:absolute;
+width:18px;
+height:10px;
+border-radius:4px;
+background:#64e7ff;
+box-shadow:0 0 10px rgba(100,231,255,.9);
+z-index:30;
+}
+
+/* Horizontal Road */
+
+.car1{
+top:121px;
+left:-40px;
+animation:carRoadOne 8s linear infinite;
+}
+
+/* Vertical Road */
+
+.car2{
+left:171px;
+top:-30px;
+animation:carRoadTwo 10s linear infinite;
+}
+
+/* Second Horizontal Road */
+
+.car3{
+top:331px;
+right:-40px;
+background:#00ff9d;
+box-shadow:0 0 12px rgba(0,255,157,.8);
+animation:carRoadThree 9s linear infinite;
+}
+
+@keyframes carRoadOne{
+
+0%{
+left:-40px;
+}
+
+100%{
+left:105%;
+}
+
+}
+
+@keyframes carRoadTwo{
+
+0%{
+top:-30px;
+}
+
+100%{
+top:105%;
+}
+
+}
+
+@keyframes carRoadThree{
+
+0%{
+right:-40px;
+}
+
+100%{
+right:105%;
+}
+
+}
+
+/* ==========================================================
+   DIGITAL TWIN AI NETWORK
+========================================================== */
+
+/* Sensor Towers */
+
+.tower{
+position:absolute;
+width:8px;
+height:45px;
+background:#8fdfff;
+border-radius:4px;
+box-shadow:0 0 15px rgba(120,240,255,.8);
+z-index:20;
+}
+
+.t1{left:120px;top:90px;}
+.t2{right:130px;top:140px;}
+.t3{left:50%;bottom:90px;transform:translateX(-50%);}
+
+.tower::before{
+content:"";
+position:absolute;
+top:-10px;
+left:50%;
+transform:translateX(-50%);
+width:10px;
+height:10px;
+border-radius:50%;
+background:#00ffff;
+box-shadow:0 0 12px cyan;
+animation:towerPulse 1.8s infinite;
+}
+
+@keyframes towerPulse{
+0%,100%{
+transform:translateX(-50%) scale(1);
+opacity:1;
+}
+50%{
+transform:translateX(-50%) scale(1.8);
+opacity:.25;
+}
+}
+
+/* Drone */
+
+.drone{
+position:absolute;
+width:20px;
+height:20px;
+border-radius:50%;
+background:#ffffff;
+box-shadow:0 0 15px cyan;
+top:70px;
+left:0;
+z-index:40;
+animation:droneFlight 18s linear infinite;
+}
+
+.drone::before,
+.drone::after{
+content:"";
+position:absolute;
+width:24px;
+height:2px;
+background:#8fdfff;
+left:-2px;
+top:9px;
+}
+
+.drone::after{
+transform:rotate(90deg);
+}
+
+/* Data Packets */
+
+.packet{
+position:absolute;
+width:8px;
+height:8px;
+border-radius:50%;
+background:#00ffff;
+box-shadow:0 0 12px cyan;
+z-index:35;
+}
+
+.p1{animation:data1 5s linear infinite;}
+.p2{animation:data2 6s linear infinite;}
+.p3{animation:data3 4s linear infinite;}
+.p4{animation:data4 7s linear infinite;}
+
+@keyframes droneFlight{
+0%{
+left:-30px;
+top:80px;
+}
+25%{
+left:30%;
+top:120px;
+}
+50%{
+left:55%;
+top:70px;
+}
+75%{
+left:80%;
+top:170px;
+}
+100%{
+left:110%;
+top:90px;
+}
+}
+
+@keyframes data1{
+0%{left:120px;top:90px;}
+100%{left:50%;top:50%;}
+}
+
+@keyframes data2{
+0%{right:130px;top:140px;}
+100%{left:50%;top:50%;}
+}
+
+@keyframes data3{
+0%{left:50%;bottom:90px;}
+100%{left:50%;top:50%;}
+}
+
+@keyframes data4{
+0%{
+left:50%;
+top:50%;
+}
+100%{
+left:85%;
+top:75%;
+}
+}
+
+/* ==========================================================
+   DIGITAL TWIN CINEMATIC EFFECTS
+========================================================== */
+
+/* Soft city glow */
+.digital-twin::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 50% 50%,
+rgba(0,255,255,.12),
+transparent 70%);
+pointer-events:none;
+animation:cityGlow 4s ease-in-out infinite;
+}
+
+/* Scanning beam */
+
+.digital-twin::after{
+content:"";
+position:absolute;
+left:0;
+top:-100%;
+width:100%;
+height:120px;
+background:linear-gradient(
+to bottom,
+transparent,
+rgba(0,255,255,.25),
+transparent
+);
+animation:scanner 6s linear infinite;
+pointer-events:none;
+}
+
+/* AI Core floating */
+
+.ai-core-center{
+animation:
+coreFloat 3s ease-in-out infinite;
+}
+
+/* Buildings breathe */
+
+.building{
+animation:
+buildingGlow 3s ease-in-out infinite alternate,
+buildingFloat 5s ease-in-out infinite;
+}
+
+/* Drone shadow */
+
+.drone{
+filter:drop-shadow(0 0 12px cyan);
+}
+
+/* Cars brighter */
+
+.car{
+animation-timing-function:linear;
+filter:drop-shadow(0 0 10px cyan);
+}
+
+/* Keyframes */
+
+@keyframes scanner{
+
+0%{
+top:-120px;
+}
+
+100%{
+top:105%;
+}
+
+}
+
+@keyframes cityGlow{
+
+0%,100%{
+opacity:.55;
+}
+
+50%{
+opacity:1;
+}
+
+}
+
+@keyframes coreFloat{
+
+0%,100%{
+transform:translate(-50%,-50%);
+}
+
+50%{
+transform:translate(-50%,-56%);
+}
+
+}
+
+@keyframes buildingFloat{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-3px);
+}
+
+}
+
+/* ==========================================
+   DIGITAL TWIN LIVE ANIMATIONS
+========================================== */
+
+.digital-twin-scene{
+    position:relative;
+    overflow:hidden;
+}
+
+/* VEHICLES */
+
+.vehicle{
+    position:absolute;
+    width:12px;
+    height:6px;
+    background:#64e7ff;
+    border-radius:3px;
+    box-shadow:0 0 10px #64e7ff;
+    z-index:30;
+}
+
+.vehicle1{
+    top:62%;
+    left:-10%;
+    animation:driveHorizontal 8s linear infinite;
+}
+
+.vehicle2{
+    top:35%;
+    right:-10%;
+    animation:driveReverse 10s linear infinite;
+}
+
+.vehicle3{
+    left:52%;
+    top:-10%;
+    transform:rotate(90deg);
+    animation:driveVertical 9s linear infinite;
+}
+
+/* DRONES */
+
+.drone{
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#ffffff;
+    box-shadow:0 0 15px #64e7ff;
+    z-index:40;
+}
+
+.drone::after{
+    content:"";
+    position:absolute;
+    left:-12px;
+    top:4px;
+    width:34px;
+    height:2px;
+    background:rgba(100,231,255,.4);
+}
+
+.drone1{
+    animation:fly1 12s linear infinite;
+}
+
+.drone2{
+    animation:fly2 15s linear infinite;
+}
+
+/* DATA STREAMS */
+
+.data-stream{
+    position:absolute;
+    width:2px;
+    background:linear-gradient(
+        transparent,
+        #64e7ff,
+        transparent
+    );
+    opacity:.7;
+    animation:pulseData 2s infinite;
+}
+
+.stream1{
+    left:25%;
+    height:100%;
+}
+
+.stream2{
+    left:50%;
+    height:100%;
+}
+
+.stream3{
+    left:75%;
+    height:100%;
+}
+
+/* KEYFRAMES */
+
+@keyframes driveHorizontal{
+
+0%{
+left:-10%;
+}
+
+100%{
+left:110%;
+}
+
+}
+
+@keyframes driveReverse{
+
+0%{
+right:-10%;
+}
+
+100%{
+right:110%;
+}
+
+}
+
+@keyframes driveVertical{
+
+0%{
+top:-10%;
+}
+
+100%{
+top:110%;
+}
+
+}
+
+@keyframes fly1{
+
+0%{
+left:-5%;
+top:20%;
+}
+
+50%{
+left:60%;
+top:8%;
+}
+
+100%{
+left:105%;
+top:22%;
+}
+
+}
+
+@keyframes fly2{
+
+0%{
+left:100%;
+top:65%;
+}
+
+50%{
+left:40%;
+top:35%;
+}
+
+100%{
+left:-10%;
+top:60%;
+}
+
+}
+
+@keyframes pulseData{
+
+0%{
+opacity:.2;
+transform:scaleY(.2);
+}
+
+50%{
+opacity:1;
+transform:scaleY(1);
+}
+
+100%{
+opacity:.2;
+transform:scaleY(.2);
+}
+
+}
+
+/* ==========================================
+   AI SENSOR NETWORK
+========================================== */
+
+.sensor{
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#64e7ff;
+    box-shadow:0 0 20px #64e7ff;
+    animation:sensorPulse 2s infinite;
+    z-index:60;
+}
+
+.sensor1{
+    left:18%;
+    top:28%;
+}
+
+.sensor2{
+    left:50%;
+    top:48%;
+}
+
+.sensor3{
+    left:76%;
+    top:30%;
+}
+
+.sensor4{
+    left:82%;
+    top:74%;
+}
+
+.sensor-network{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:20;
+}
+
+.sensor-network line{
+    stroke:#64e7ff;
+    stroke-width:2;
+    opacity:.35;
+    stroke-dasharray:8 8;
+    animation:dataFlow 2s linear infinite;
+}
+
+@keyframes sensorPulse{
+
+0%,100%{
+transform:scale(1);
+opacity:.7;
+}
+
+50%{
+transform:scale(1.6);
+opacity:1;
+}
+
+}
+
+@keyframes dataFlow{
+
+from{
+stroke-dashoffset:0;
+}
+
+to{
+stroke-dashoffset:-32;
+}
+
+}
+
+/* =====================================================
+   ADVANCED DIGITAL TWIN
+===================================================== */
+
+.dt-grid{
+    position:absolute;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(100,231,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(100,231,255,.08) 1px,transparent 1px);
+    background-size:40px 40px;
+}
+
+.road{
+    position:absolute;
+    background:rgba(120,180,255,.15);
+}
+
+.horizontal{
+    width:100%;
+    height:6px;
+}
+
+.vertical{
+    width:6px;
+    height:100%;
+}
+
+.h1{top:30%;}
+.h2{top:70%;}
+
+.v1{left:35%;}
+.v2{left:70%;}
+
+.ai-core-center{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    border:2px solid #64e7ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#64e7ff;
+    font-weight:700;
+    text-align:center;
+}
+
+.pulse{
+    position:absolute;
+    border:2px solid #64e7ff;
+    border-radius:50%;
+    inset:-10px;
+    animation:pulseAI 2s infinite;
+}
+
+.pulse2{animation-delay:.6s;}
+.pulse3{animation-delay:1.2s;}
+
+@keyframes pulseAI{
+    from{transform:scale(.9);opacity:1;}
+    to{transform:scale(1.6);opacity:0;}
+}
+
+.building{
+    position:absolute;
+    width:22px;
+    height:22px;
+    background:#64e7ff;
+    border-radius:4px;
+    box-shadow:0 0 10px #64e7ff;
+}
+
+.b1{top:12%;left:12%;}
+.b2{top:18%;right:15%;}
+.b3{bottom:15%;left:15%;}
+.b4{bottom:18%;right:18%;}
+.b5{top:45%;left:18%;}
+.b6{top:48%;right:22%;}
+.b7{top:75%;left:42%;}
+.b8{top:15%;left:45%;}
+
+.vehicle{
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:#00ff99;
+    border-radius:50%;
+    animation:drive 8s linear infinite;
+}
+
+.vehicle2{animation-delay:2s;}
+.vehicle3{animation-delay:4s;}
+
+@keyframes drive{
+    0%{left:0%;top:30%;}
+    50%{left:70%;top:30%;}
+    100%{left:100%;top:30%;}
+}
+
+.drone{
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#ffd54f;
+    animation:hoverDrone 4s ease-in-out infinite;
+}
+
+.drone1{top:20%;left:40%;}
+.drone2{top:65%;left:65%;}
+
+@keyframes hoverDrone{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+.sensor{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:#ff5b7f;
+    border-radius:50%;
+    box-shadow:0 0 12px #ff5b7f;
+}
+
+.sensor1{top:20%;left:20%;}
+.sensor2{top:20%;right:20%;}
+.sensor3{bottom:20%;left:30%;}
+.sensor4{bottom:18%;right:18%;}
+
+.sensor-network{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+
+.sensor-network line{
+    stroke:#64e7ff;
+    stroke-width:2;
+    stroke-dasharray:8;
+    animation:flow 2s linear infinite;
+}
+
+@keyframes flow{
+    to{
+        stroke-dashoffset:-16;
+    }
+}
+
+/* ===== INTRO FIX ===== */
+
+#nexus-intro{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+
+.nexus-core{
+    position:relative;
+    width:420px;
+    height:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+
+.core-light{
+    position:absolute;
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    z-index:1;
+}
+
+
+.nexus-title{
+    position:relative;
+    z-index:5;
+    margin-top:20px;
+}
+
+
+.nexus-subtitle{
+    position:relative;
+    z-index:5;
+}
+
+
+.nexus-tagline{
+    position:relative;
+    z-index:5;
+}
+
+
+.orbit{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+
+.orbit-one{
+    width:260px;
+    height:260px;
+}
+
+
+.orbit-two{
+    width:340px;
+    height:340px;
+}
+
+
+.orbit-three{
+    width:420px;
+    height:420px;
+}
+
+/* ===== NEXUS CINEMATIC INTRO POLISH ===== */
+
+
+.nexus-core{
+    position:relative;
+    width:500px;
+    height:500px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+
+/* MAIN GLOW CORE */
+
+.core-light{
+    width:180px;
+    height:180px;
+    background:
+    radial-gradient(circle,
+    #ffffff 0%,
+    #64e7ff 20%,
+    #008cff 45%,
+    transparent 70%);
+
+    filter:
+    drop-shadow(0 0 40px #00d9ff)
+    drop-shadow(0 0 80px #0066ff);
+
+    animation:
+    corePulse 2s infinite alternate;
+
+    z-index:2;
+}
+
+
+@keyframes corePulse{
+
+    from{
+        transform:scale(1);
+        opacity:.8;
+    }
+
+    to{
+        transform:scale(1.15);
+        opacity:1;
+    }
+
+}
+
+
+
+/* ROTATING ORBITS */
+
+
+.orbit{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:1px solid rgba(100,231,255,.35);
+
+    box-shadow:
+    0 0 25px rgba(0,200,255,.5);
+
+}
+
+
+.orbit-one{
+
+    width:260px;
+    height:260px;
+
+    animation:
+    rotateOne 8s linear infinite;
+
+}
+
+
+.orbit-two{
+
+    width:360px;
+    height:360px;
+
+    animation:
+    rotateTwo 12s linear infinite;
+
+}
+
+
+.orbit-three{
+
+    width:470px;
+    height:470px;
+
+    animation:
+    rotateOne 18s linear infinite;
+
+}
+
+
+
+@keyframes rotateOne{
+
+from{
+transform:
+translate(-50%,-50%)
+rotate(0deg);
+}
+
+to{
+
+transform:
+translate(-50%,-50%)
+rotate(360deg);
+
+}
+
+}
+
+
+@keyframes rotateTwo{
+
+from{
+transform:
+translate(-50%,-50%)
+rotate(360deg);
+}
+
+to{
+
+transform:
+translate(-50%,-50%)
+rotate(0deg);
+
+}
+
+}
+
+
+
+/* TEXT POSITIONS */
+
+
+.nexus-title{
+
+position:relative;
+
+z-index:10;
+
+margin-top:40px;
+
+font-size:64px;
+
+letter-spacing:12px;
+
+color:white;
+
+text-shadow:
+
+0 0 15px #00d9ff,
+0 0 40px #0077ff;
+
+}
+
+
+
+.nexus-subtitle{
+
+position:relative;
+
+z-index:10;
+
+margin-top:8px;
+
+font-size:18px;
+
+letter-spacing:8px;
+
+color:#64e7ff;
+
+}
+
+
+
+.nexus-tagline{
+
+position:relative;
+
+z-index:10;
+
+margin-top:18px;
+
+font-size:12px;
+
+letter-spacing:4px;
+
+color:#9ab3c1;
+
+text-align:center;
+
+max-width:420px;
+
+text-shadow:
+
+0 0 15px #00d9ff;
+
+}
+
+/* ===== FINAL INTRO ALIGNMENT FIX ===== */
+
+
+.nexus-core{
+    position:relative;
+    height:520px;
+    width:520px;
+}
+
+
+/* Put all text below the core */
+
+.nexus-title{
+    position:absolute !important;
+    top:300px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:20;
+}
+
+
+.nexus-subtitle{
+    position:absolute !important;
+    top:375px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:20;
+    white-space:nowrap;
+}
+
+
+.nexus-tagline{
+
+    position:absolute !important;
+
+    top:430px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:450px;
+
+    text-align:center;
+
+    z-index:20;
+
+}
+
+
+
+/* Saturn style orbit */
+
+.orbit{
+
+    background:none !important;
+
+    border:1px solid rgba(100,231,255,0.35);
+
+    box-shadow:
+    0 0 20px rgba(0,200,255,.6);
+
+}
+
+
+.orbit-one{
+
+width:260px;
+height:260px;
+
+animation:
+saturnSpin 10s linear infinite;
+
+}
+
+
+.orbit-two{
+
+width:350px;
+height:350px;
+
+animation:
+saturnSpinReverse 15s linear infinite;
+
+}
+
+
+.orbit-three{
+
+width:450px;
+height:450px;
+
+animation:
+saturnSpin 22s linear infinite;
+
+}
+
+
+
+@keyframes saturnSpin{
+
+from{
+transform:
+translate(-50%,-50%)
+rotate(0deg);
+}
+
+to{
+transform:
+translate(-50%,-50%)
+rotate(360deg);
+}
+
+}
+
+
+@keyframes saturnSpinReverse{
+
+from{
+transform:
+translate(-50%,-50%)
+rotate(360deg);
+}
+
+to{
+transform:
+translate(-50%,-50%)
+rotate(0deg);
+}
+
+}
+
+/* ===== INTRO TEXT FINAL SPACING ===== */
+
+.nexus-title{
+    top:300px !important;
+}
+
+
+.nexus-subtitle{
+    top:365px !important;
+}
+
+
+.nexus-tagline{
+    top:425px !important;
+}
+
+/* ===== SATURN STYLE ORBITS ===== */
+
+.orbit{
+    border-radius:50%;
+    background:transparent !important;
+}
+
+
+.orbit-one{
+    width:300px;
+    height:120px;
+    border:2px solid rgba(100,231,255,.45);
+    transform:translate(-50%,-50%) rotate(-20deg);
+}
+
+
+.orbit-two{
+    width:390px;
+    height:160px;
+    border:1px solid rgba(0,150,255,.35);
+    transform:translate(-50%,-50%) rotate(35deg);
+}
+
+
+.orbit-three{
+    width:470px;
+    height:200px;
+    border:1px solid rgba(100,231,255,.25);
+    transform:translate(-50%,-50%) rotate(-45deg);
+}
+
+/* ===== FLOATING AI FIREFLIES ===== */
+
+.particles span{
+
+position:absolute;
+
+width:4px;
+height:4px;
+
+background:#64e7ff;
+
+border-radius:50%;
+
+box-shadow:
+0 0 10px #64e7ff,
+0 0 20px #00aaff;
+
+animation:
+floatFirefly 8s linear infinite;
+
+}
+
+
+@keyframes floatFirefly{
+
+0%{
+transform:
+translateY(100vh);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:
+translateY(-20vh);
+opacity:0;
+}
+
+}
+
+
+.nexus-subtitle{
+    display:none;
+}
+
+/* =================================
+   NEXUS AI FLOATING FIREFLY PARTICLES
+   (DO NOT AFFECT ORBITS)
+================================= */
+
+.particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:2;
+}
+
+
+.particles span{
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    background:#64e7ff;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 8px #64e7ff,
+    0 0 18px #64e7ff;
+
+    opacity:0;
+
+    animation:
+    floatParticle 8s linear infinite;
+
+}
+
+
+/* Different positions */
+
+.particles span:nth-child(1){
+    left:15%;
+    animation-delay:0s;
+}
+
+.particles span:nth-child(2){
+    left:30%;
+    animation-delay:2s;
+}
+
+.particles span:nth-child(3){
+    left:50%;
+    animation-delay:4s;
+}
+
+.particles span:nth-child(4){
+    left:70%;
+    animation-delay:1s;
+}
+
+.particles span:nth-child(5){
+    left:85%;
+    animation-delay:3s;
+}
+
+
+
+@keyframes floatParticle{
+
+
+0%{
+    transform:translateY(100vh);
+    opacity:0;
+}
+
+
+20%{
+    opacity:.8;
+}
+
+
+50%{
+    opacity:1;
+}
+
+
+100%{
+
+    transform:translateY(-20vh);
+
+    opacity:0;
+
+}
+
+}
+
+/* AI CORE CLICK GUIDE */
+
+.click-hint{
+
+    position:absolute;
+
+    top:125px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#64e7ff;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    opacity:0;
+
+    animation:showHint 1s ease forwards;
+
+    animation-delay:6s;
+
+    text-shadow:
+    0 0 10px #64e7ff;
+
+    pointer-events:none;
+
+}
+
+
+@keyframes showHint{
+
+    from{
+        opacity:0;
+        transform:translateX(-50%) translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(-50%) translateY(0);
+    }
+
+}
