@@ -339,6 +339,198 @@ function openCityRisks() {
 }
 
 /* =========================================================
+   OPEN NEXUS DECISION
+   ========================================================= */
+
+const nexusDecisionView =
+    document.getElementById("nexus-decision-view");
+
+const nexusDecisionBack =
+    document.getElementById("nexusDecisionBack");
+
+
+function openNexusDecision() {
+
+    if (!nexusDecisionView) {
+
+        console.warn(
+            "Nexus Decision view not found."
+        );
+
+        return;
+
+    }
+
+
+    if (cityNowView) {
+        cityNowView.classList.remove("active");
+    }
+
+
+    if (cityNextView) {
+        cityNextView.classList.remove("active");
+    }
+
+
+    if (cityRisksView) {
+        cityRisksView.classList.remove("active");
+    }
+
+
+    nexusDecisionView.classList.add("active");
+
+
+    console.log(
+        "NexusCity: Nexus Decision opened."
+    );
+
+}
+
+/* =========================================================
+   SCENARIO LAB
+   ========================================================= */
+
+const scenarioLabView =
+    document.getElementById("scenario-lab-view");
+
+const scenarioLabBack =
+    document.getElementById("scenarioLabBack");
+
+const runScenario =
+    document.getElementById("runScenario");
+
+const scenarioResult =
+    document.getElementById("scenarioResult");
+
+
+function openScenarioLab() {
+
+    if (!scenarioLabView) {
+
+        console.warn(
+            "Scenario Lab view not found."
+        );
+
+        return;
+
+    }
+
+
+    if (cityNowView) {
+        cityNowView.classList.remove("active");
+    }
+
+
+    if (cityNextView) {
+        cityNextView.classList.remove("active");
+    }
+
+
+    if (cityRisksView) {
+        cityRisksView.classList.remove("active");
+    }
+
+
+    if (nexusDecisionView) {
+        nexusDecisionView.classList.remove("active");
+    }
+
+
+    scenarioLabView.classList.add("active");
+
+
+    console.log(
+        "NexusCity: Scenario Lab opened."
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE SCENARIO LAB
+   ========================================================= */
+
+if (scenarioLabBack) {
+
+    scenarioLabBack.addEventListener(
+        "click",
+        () => {
+
+            scenarioLabView.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RUN SCENARIO
+   ========================================================= */
+
+if (runScenario) {
+
+    runScenario.addEventListener(
+        "click",
+        () => {
+
+            runScenario.classList.add(
+                "simulating"
+            );
+
+            runScenario.textContent =
+                "◌ SIMULATING CITY...";
+
+
+            setTimeout(() => {
+
+                if (scenarioResult) {
+
+                    scenarioResult.style.display =
+                        "block";
+
+                }
+
+
+                runScenario.classList.remove(
+                    "simulating"
+                );
+
+
+                runScenario.textContent =
+                    "✓ SCENARIO COMPLETE";
+
+
+            }, 2500);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE NEXUS DECISION
+   ========================================================= */
+
+if (nexusDecisionBack) {
+
+    nexusDecisionBack.addEventListener(
+        "click",
+        () => {
+
+            nexusDecisionView.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+}
+
+/* =========================================================
 CLOSE CITY NEXT
 ========================================================= */
 
@@ -525,6 +717,25 @@ const rainfallElement =
         "rainfallValue"
     );
 
+    const airElement =
+    document.getElementById(
+        "airValue"
+    );
+
+const trafficElement =
+    document.getElementById(
+        "trafficValue"
+    );
+
+const energyElement =
+    document.getElementById(
+        "energyValue"
+    );
+
+const sensorElement =
+    document.getElementById(
+        "sensorValue"
+    );
 
 if (
     !temperatureElement ||
@@ -568,6 +779,18 @@ try {
     const current =
         data.current;
 
+        const aqi =
+    Math.floor(40 + Math.random() * 60);
+
+const traffic =
+    Math.floor(60 + Math.random() * 35);
+
+const energy =
+    Math.floor(45 + Math.random() * 45);
+
+const sensors =
+    Math.floor(1100 + Math.random() * 500);
+
 
     /* -----------------------------------------
        TEMPERATURE
@@ -583,6 +806,38 @@ try {
 
     rainfallElement.textContent =
         `${Number(current.precipitation).toFixed(1)} mm`;
+
+        /* -----------------------------------------
+   LIVE DASHBOARD METRICS
+----------------------------------------- */
+
+if (airElement) {
+
+    airElement.textContent =
+        `AQI ${aqi}`;
+
+}
+
+if (trafficElement) {
+
+    trafficElement.textContent =
+        `${traffic}%`;
+
+}
+
+if (energyElement) {
+
+    energyElement.textContent =
+        `${energy}%`;
+
+}
+
+if (sensorElement) {
+
+    sensorElement.textContent =
+        sensors.toLocaleString();
+
+}
 
 
     /* -----------------------------------------
@@ -1339,5 +1594,68 @@ console.log(
 "Nexus Core:",
 !!nexusCore
 );
- 
- 
+
+/* ==========================================
+   DIGITAL TWIN LIVE ANIMATION
+========================================== */
+
+setInterval(() => {
+
+    document.querySelectorAll(".map-zone").forEach(zone => {
+
+        zone.style.opacity = 0.4 + Math.random() * 0.6;
+
+        zone.style.transform =
+            `scale(${0.95 + Math.random() * 0.12})`;
+
+    });
+
+}, 1000);
+
+
+
+setInterval(() => {
+
+    document.querySelectorAll(".map-core div").forEach(core => {
+
+        core.style.transform =
+            `scale(${1 + Math.random() * 0.15})`;
+
+    });
+
+}, 800);
+
+/* =====================================================
+   ADVANCED DIGITAL TWIN ANIMATION
+===================================================== */
+
+setInterval(() => {
+
+    document.querySelectorAll(".building").forEach(building => {
+
+        building.style.opacity = 0.5 + Math.random() * 0.5;
+
+    });
+
+    document.querySelectorAll(".sensor").forEach(sensor => {
+
+        sensor.style.transform =
+            `scale(${0.8 + Math.random() * 0.6})`;
+
+    });
+
+}, 800);
+
+const particleBox = document.getElementById("particles");
+
+for(let i=0;i<25;i++){
+
+    let p=document.createElement("span");
+
+    p.style.left=Math.random()*100+"%";
+    p.style.animationDelay=Math.random()*8+"s";
+    p.style.animationDuration=(6+Math.random()*6)+"s";
+
+    particleBox.appendChild(p);
+
+}
